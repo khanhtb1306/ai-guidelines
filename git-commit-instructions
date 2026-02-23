@@ -1,7 +1,6 @@
-## Commit Message Instructions
+## Commit Message Guidelines
 
-Keep commit messages short, clear, and consistent.
-This project follows a **hybrid format** combining **Conventional Commits** with **emoji categories** for better readability and automation.
+This project follows the **Conventional Commits** specification to ensure consistency, automation, and clarity in the commit history.
 
 ---
 
@@ -10,16 +9,16 @@ This project follows a **hybrid format** combining **Conventional Commits** with
 Use the following structure:
 
 ```
-type(scope): <emoji> message
+type(scope): short description
 ```
 
 ### Examples
 
 ```
-feat(auth): 🎉 add new login functionality
-fix(upload): 🐛 prevent crash when uploading files
-refactor(chart): 🔨 simplify rendering logic
-docs(api): 📜 add authentication guide
+feat(auth): add login API
+fix(payment): handle null pointer in refund flow
+refactor(user): simplify validation logic
+docs(api): update authentication guide
 ```
 
 ---
@@ -30,20 +29,20 @@ Use one of the following commit types:
 
 * **feat** – Adds a new feature
 * **fix** – Fixes a bug
-* **refactor** – Code changes without behavior change
+* **refactor** – Code changes that do not alter behavior
 * **docs** – Documentation updates
 * **chore** – Maintenance or non-functional changes
 * **style** – Formatting, linting, or styling
 * **test** – Adds or updates tests
 * **perf** – Performance improvements
-* **ci** – CI/CD configuration
-* **build** – Build or dependency changes
+* **ci** – CI/CD configuration changes
+* **build** – Build system or dependency updates
 
 ---
 
 ## Scope
 
-The scope should represent the module, domain, or component affected.
+The scope should describe the module, domain, or component affected.
 
 Examples:
 
@@ -58,74 +57,106 @@ dashboard
 Example:
 
 ```
-fix(payment): 🐛 incorrect total calculation
+fix(payment): incorrect total calculation
+```
+
+If the change affects multiple areas, omit the scope:
+
+```
+chore: update dependencies
 ```
 
 ---
 
-## Emoji Categories
+## Description
 
-Use **exactly one emoji** that best describes the change:
+The description should:
 
-* 📊 **Data** – Updates or adds data
-* 🐛 **Bug** – Fixes a user-facing bug
-* 🔨 **Refactor** – Code restructuring without behavior change
-* ✨ **Enhance** – Improves existing functionality
-* 🎉 **Feature** – Adds new functionality
-* 📜 **Docs** – Documentation updates
-* 🧹 **Chore** – Maintenance tasks or housekeeping
-* 💄 **Style** – Formatting or visual improvements
-* 🚧 **WIP** – Work in progress
-* ✅ **Tests** – Adds or refactors tests
+* Be short and concise.
+* Use the imperative mood (e.g., "add", "fix", "update", not "added", "fixed").
+* Focus on the main impact of the change.
+* Avoid unnecessary details.
+
+Good examples:
+
+```
+feat(user): add profile picture upload
+fix(api): handle null response
+```
+
+Avoid:
+
+```
+update stuff
+fix bugs
+misc changes
+```
 
 ---
 
 ## Breaking Changes
 
-If the change introduces a breaking change, add `!` after the type:
+For breaking changes, add `!` after the type or scope:
 
 ```
-feat(auth)!: 🎉 remove legacy login system
+feat(auth)!: remove legacy login
 ```
 
-Or include a description in the body:
+Or include a detailed explanation in the commit body:
 
 ```
-feat(auth): 🎉 remove legacy login system
+feat(auth): remove legacy login
 
 BREAKING CHANGE: old login API is no longer supported.
 ```
 
 ---
 
-## Best Practices
+## Commit Body (Optional)
 
-* Keep messages concise and meaningful.
-* Use one emoji per commit.
-* Focus on the main impact of the change.
-* Split unrelated changes into separate commits.
-* Use scope consistently across the project.
-* Avoid vague messages like "update", "fix stuff", or "misc changes".
+Use the body to explain **why** the change was made, not **what**.
+
+Example:
+
+```
+fix(payment): prevent duplicate transactions
+
+The system did not validate transaction IDs properly.
+This change ensures idempotency for payment requests.
+```
 
 ---
 
-## Tips for Teams
+## Best Practices
 
-* Follow this format to enable:
-
-  * Automated versioning
-  * Automatic changelog generation
-  * CI/CD and release automation
-* Commit often and in small logical steps.
+* Keep commits small and focused.
+* Split unrelated changes into separate commits.
+* Commit frequently.
+* Ensure each commit represents a logical unit of work.
 * Review commit history as part of code review.
 
 ---
 
-## Example History
+## Automation Benefits
+
+Following this format enables:
+
+* Automated versioning
+* Automatic changelog generation
+* Release automation
+* CI/CD integration
+* Better auditability and traceability
+
+---
+
+## Example Commit History
 
 ```
-feat(auth): 🎉 add social login
-fix(api): 🐛 handle null response
-refactor(user): 🔨 simplify service layer
-docs(readme): 📜 update setup instructions
+feat(auth): add social login
+fix(api): handle null response
+refactor(user): simplify service layer
+docs(readme): update setup instructions
+test(payment): add refund test cases
 ```
+
+---
